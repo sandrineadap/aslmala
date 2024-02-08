@@ -1,0 +1,18 @@
+const Colors =
+{
+    TEXT_PRIMARY: '#0D1B34',
+    TEXT_SECONDARY: '#8696BB',
+    BORDER: '#D0D6E3',
+    BACKGROUND: '#F6F5F5',
+    SELECTED_BG_BLUE: '#63B4FF', //20% opacity
+    SELECTED_BLUE: '#4894FE',
+    PRIMARY_BUTTON: '#1FB9FC',
+    DISABLED_BUTTON: '#E1E1E1',
+    DISABLED_BUTTON_TEXT: '#999999',
+    LIME: '#CBF265',
+    LIGHT_GREEN: '#ACFF86',
+    ORANGE: '#FEB052',
+    SELECTED_BG_ORANGE: '#F8E7D4',
+    WHITE: '#FFFFFF'
+}
+export default Colors;
