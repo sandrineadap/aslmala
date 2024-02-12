@@ -1,7 +1,8 @@
 const Colors =
 {
     TEXT_PRIMARY: '#0D1B34',
-    TEXT_SECONDARY: '#8696BB',
+    // TEXT_SECONDARY: '#8696BB',
+    TEXT_SECONDARY: '#62749D',
     BORDER: '#D0D6E3',
     BACKGROUND: '#F6F5F5',
     SELECTED_BG_BLUE: '#63B4FF', //20% opacity
