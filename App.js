@@ -1,24 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Animated, SafeAreaView } from 'react-native';
 import Colors from './utilities/Color';
-import { Dimensions } from 'react-native';
+import Button from './src/components/atoms/Button';
 
 /************ Components ************/
-const PressableHighlightButton = ({title, onTap}) => {
+const Button1 = ({title}) => {
+  const animated = new Animated.Value(1);
+  const fadeIn = () => {
+    Animated.timing(animated, {
+      toValue: 0.4,
+      duration: 25,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const fadeOut = () => {
+    Animated.timing(animated, {
+      toValue: 1,
+      duration: 200,
+      useNativeDriver: true,
+    }).start();
+  };
   return (
-    <Pressable
-      onPress={onTap}
-      style={({ pressed }) => [
-        {
-          backgroundColor: pressed
-            ? Colors.PRIMARY_BUTTON_PRESSED 
-            : Colors.PRIMARY_BUTTON
-        },
-        styles.button
-      ]}>
+    <Pressable onPressIn={fadeIn} onPressOut={fadeOut}>
+      <Animated.View
+        style={[styles.button, { backgroundColor: Colors.PRIMARY_BUTTON, opacity: animated}]}>
         <Text style={styles.buttonText}>{ title }</Text>
+      </Animated.View>
+
     </Pressable>
-  );
+  )
 }
 
 /************ Main App ************/
@@ -41,32 +52,18 @@ const App = () => {
           and Mandy will give you instant feedback on how you did!
         </Text>
 
-        <View style={{ flex: 4 }}>
+        <SafeAreaView style={{ flex: 4 }}>
           {/* This is where the buttons will go */}
-          <TouchableOpacity
-            style={{
-              backgroundColor: '#147EFB',
-              padding: 10,
-              borderRadius: 6,
-            }}
-          >
-            <Text style={{ color: '#fff' }}>PRACTICE</Text>
-          </TouchableOpacity>
-          <Pressable
+          <Button1 title="PRACTICE 1"/>
+          <Button
             onPress={() => {
-              // setTimesPressed(current => current + 1);
+              // handle button press event
             }}
-            style={({ pressed }) => [
-              {
-                backgroundColor: pressed ? Colors.PRIMARY_BUTTON_PRESSED : Colors.PRIMARY_BUTTON,
-              },
-              styles.wrapperCustom,
-            ]}>
-            {({ pressed }) => (
-              <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me!'}</Text>
-            )}
-          </Pressable>
-        </View>
+            title = "PRACTICE"
+            style={styles.customButton}
+            textStyle={styles.CustomButtonText}
+          />
+        </SafeAreaView>
       </View>
 
       <StatusBar style="auto" />
@@ -115,11 +112,23 @@ const styles = StyleSheet.create({
   },
   content: {
     // justifyContent: 'center',
-    textAlign: 'left',
+    textAlign: 'center',
     color: Colors.TEXT_SECONDARY,
     paddingHorizontal: 30,
+    fontSize: 14,
   },
-  buttons: {},
+  button: {
+    padding: 16,
+    marginBottom: 12,
+    flexDirection: 'column',
+    borderRadius: 8
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: Colors.WHITE,
+    fontWeight: '600',
+    fontSize: 14,
+  },
 });
 
 export default App;
