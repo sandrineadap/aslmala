@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Pressable, Animated } from "react-native";
 import Colors from '../../../utilities/Color';
 
-const Button = ({ title, onPress, disabled }) => {
+const Button = ({ title, onPress, disabled, style }) => {
     const animated = new Animated.Value(1);
     const fadeIn = () => {
         Animated.timing(animated, {
@@ -24,11 +24,11 @@ const Button = ({ title, onPress, disabled }) => {
             onPress={onPress}
             onPressIn={fadeIn} 
             onPressOut={fadeOut} 
-            disabled={disabled}
+            off={disabled}
         >
             <Animated.View
-                style={disabled ? [styles.disabledButton, { opacity: animated }] : [styles.button, { opacity: animated }]}>
-                <Text style={disabled ? styles.disabledButtonText : styles.buttonText}>{title}</Text>
+                style={[disabled ? [styles.disabledButton] : [styles.button, { opacity: animated }], style]}>
+                <Text style={[disabled ? styles.disabledButtonText : styles.buttonText]}>{title}</Text>
             </Animated.View>
 
         </Pressable>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         alightItems: 'center',
         width: "100%",
     },
-    disabledbutton: {
+    disabledButton: {
         backgroundColor: Colors.DISABLED_BUTTON,
         padding: 16,
         marginBottom: 12,
