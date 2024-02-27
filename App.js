@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Pressable, SafeAreaView, TouchableOpacity } from 'react-native';
 import Colors from './utilities/Color';
 import { Dimensions } from 'react-native';
 
@@ -16,13 +16,13 @@ export default function App() {
         </View>
         {/* <Text style={[styles.sectionTitle, {flex: 2}]}> Sign&#x2022;a&#x2022;mander</Text> */}
         <Text style={[styles.subTitle, { flex: 1 }]}>ASL PRACTICE</Text>
-        <Text style={[styles.content, { flex: 2}]}>
+        <Text style={[styles.content, { flex: 2 }]}>
           Can Mandy recognize your signs?
           Practice ASL by signing in front of the camera,
           and Mandy will give you instant feedback on how you did!
         </Text>
 
-        <View style={{flex: 4 }}>
+        <View style={{ flex: 4 }}>
           {/* This is where the buttons will go */}
           <TouchableOpacity
             style={{
@@ -31,8 +31,22 @@ export default function App() {
               borderRadius: 6,
             }}
           >
-            <Text style={{ color: '#fff' }}>Click me!</Text>
+            <Text style={{ color: '#fff' }}>PRACTICE</Text>
           </TouchableOpacity>
+          <Pressable
+            onPress={() => {
+              // setTimesPressed(current => current + 1);
+            }}
+            style={({ pressed }) => [
+              {
+                backgroundColor: pressed ? Colors.PRIMARY_BUTTON_PRESSED : Colors.PRIMARY_BUTTON,
+              },
+              styles.wrapperCustom,
+            ]}>
+            {({ pressed }) => (
+              <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+            )}
+          </Pressable>
         </View>
       </View>
 
