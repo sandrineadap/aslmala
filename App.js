@@ -3,7 +3,26 @@ import { StyleSheet, Text, View, Pressable, SafeAreaView, TouchableOpacity } fro
 import Colors from './utilities/Color';
 import { Dimensions } from 'react-native';
 
-export default function App() {
+/************ Components ************/
+const PressableHighlightButton = ({title, onTap}) => {
+  return (
+    <Pressable
+      onPress={onTap}
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed
+            ? Colors.PRIMARY_BUTTON_PRESSED 
+            : Colors.PRIMARY_BUTTON
+        },
+        styles.button
+      ]}>
+        <Text style={styles.buttonText}>{ title }</Text>
+    </Pressable>
+  );
+}
+
+/************ Main App ************/
+const App = () => {
   return (
     <View style={styles.container}>
       <View style={{ flex: 2 }} />
@@ -44,7 +63,7 @@ export default function App() {
               styles.wrapperCustom,
             ]}>
             {({ pressed }) => (
-              <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+              <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me!'}</Text>
             )}
           </Pressable>
         </View>
@@ -102,3 +121,5 @@ const styles = StyleSheet.create({
   },
   buttons: {},
 });
+
+export default App;
