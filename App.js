@@ -1,9 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Animated, SafeAreaView, Alert } from 'react-native';
 import Colors from './utilities/Color';
-import { Dimensions } from 'react-native';
+import Button from './src/components/atoms/Button';
 
-export default function App() {
+/************ Main App ************/
+const App = () => {
+  const comingSoonAlert = () =>
+    Alert.alert('Learn Mode Coming Soon!', 'Stay tuned for learn mode!', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
   return (
     <View style={styles.container}>
       <View style={{ flex: 2 }} />
@@ -22,32 +32,33 @@ export default function App() {
           and Mandy will give you instant feedback on how you did!
         </Text>
 
-        <View style={{ flex: 4 }}>
+        <SafeAreaView style={{ flex: 4 }}>
           {/* This is where the buttons will go */}
-          <TouchableOpacity
-            style={{
-              backgroundColor: '#147EFB',
-              padding: 10,
-              borderRadius: 6,
-            }}
-          >
-            <Text style={{ color: '#fff' }}>PRACTICE</Text>
-          </TouchableOpacity>
-          <Pressable
+          <Button
             onPress={() => {
-              // setTimesPressed(current => current + 1);
+              // handle button press event
             }}
-            style={({ pressed }) => [
-              {
-                backgroundColor: pressed ? Colors.PRIMARY_BUTTON_PRESSED : Colors.PRIMARY_BUTTON,
-              },
-              styles.wrapperCustom,
-            ]}>
-            {({ pressed }) => (
-              <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
-            )}
-          </Pressable>
-        </View>
+            title="PRACTICE"
+            style={styles.customButton}
+            textStyle={styles.customButtonText}
+          />
+          <Button
+            onPress={() => {
+              Alert.alert('Learn Mode Coming Soon!', 'Stay tuned for Learn mode!', [
+                {
+                  text: 'Cancel',
+                  onPress: () => console.log('Cancel Pressed'),
+                  style: 'cancel',
+                },
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+              ]);
+            }}
+            disabled={true}
+            title="LEARN"
+            style={styles.customButton}
+            textStyle={styles.custombuttonText}
+          />
+        </SafeAreaView>
       </View>
 
       <StatusBar style="auto" />
@@ -96,9 +107,11 @@ const styles = StyleSheet.create({
   },
   content: {
     // justifyContent: 'center',
-    textAlign: 'left',
+    textAlign: 'center',
     color: Colors.TEXT_SECONDARY,
     paddingHorizontal: 30,
+    fontSize: 14,
   },
-  buttons: {},
 });
+
+export default App;
