@@ -82,8 +82,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignSelf: 'flex-end', // for ios
     textAlignVertical: 'bottom', // for android
-    // height: Dimensions.get('window').width * 0.09, // for android
-    // lineHeight: Dimensions.get('window').width * 0.09, // for ios
   },
   subTitle: {
     paddingTop: 5,
