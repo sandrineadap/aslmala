@@ -5,15 +5,6 @@ import Button from './src/components/atoms/Button';
 
 /************ Main App ************/
 const App = () => {
-  const comingSoonAlert = () =>
-    Alert.alert('Learn Mode Coming Soon!', 'Stay tuned for learn mode!', [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ]);
   return (
     <View style={styles.container}>
       <View style={{ flex: 2 }} />
@@ -44,13 +35,12 @@ const App = () => {
           />
           <Button
             onPress={() => {
-              Alert.alert('Learn Mode Coming Soon!', 'Stay tuned for Learn mode!', [
+              Alert.alert('Coming Soon!', 'Stay tuned for Learn mode!', [
                 {
-                  text: 'Cancel',
-                  onPress: () => console.log('Cancel Pressed'),
-                  style: 'cancel',
+                  text: 'OK',
+                  onPress: () => console.log('OK Pressed'),
+                  style: 'cancel'
                 },
-                {text: 'OK', onPress: () => console.log('OK Pressed')},
               ]);
             }}
             disabled={true}
