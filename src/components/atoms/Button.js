@@ -27,7 +27,7 @@ const Button = ({ title, onPress, disabled, style }) => {
             off={disabled}
         >
             <Animated.View
-                style={[disabled ? [styles.disabledButton] : [styles.button, { opacity: animated }], style]}>
+                style={[disabled ? [styles.disabledButton, {opacity: animated}] : [styles.button, { opacity: animated }], style]}>
                 <Text style={[disabled ? styles.disabledButtonText : styles.buttonText]}>{title}</Text>
             </Animated.View>
 
