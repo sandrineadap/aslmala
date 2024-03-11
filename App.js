@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ImageBackground, Image, Text, View, SafeAreaView, Alert, Dimensions } from 'react-native';
 import Colors from './utilities/Color';
 import Button from './src/components/atoms/Button';
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 /************ Main App ************/
 const App = () => {
