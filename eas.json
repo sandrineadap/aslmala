@@ -3,11 +3,11 @@
     "version": ">= 7.5.0"
   },
   "build": {
-    "development:emulator": {
+    "development:simulator": {
       "developmentClient": true,
       "distribution": "internal",
-      "android": {
-        "emulator": true
+      "ios": {
+        "simulator": true
       }
     },
     "development": {
