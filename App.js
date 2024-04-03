@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './src/screens/SplashScreen';
 import RecordingScreen from './src/screens/RecordingScreen';
+import 'expo-dev-client';
 
 const Stack = createNativeStackNavigator();
 
