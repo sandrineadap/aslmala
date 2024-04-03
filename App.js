@@ -13,7 +13,10 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash" screenOptions={{
-        headerShown: false
+        headerShown: true,
+        headerBackVisible: true,
+        headerTitle: "",
+        headerTransparent: true,
       }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Record" component={RecordingScreen} /> 
