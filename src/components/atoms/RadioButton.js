@@ -1,11 +1,10 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import globalStyles from '../../../utilities/globalStyles';
 import Colors from '../../../utilities/Color';
 
 const RadioButton = ({ title, selected }) => {
   return (
-    <TouchableOpacity>
       <View style={styles.wrapper}>
         <View style={[
           selected ? [styles.radio, { borderColor: Colors.PRIMARY_BUTTON }]
@@ -18,7 +17,6 @@ const RadioButton = ({ title, selected }) => {
             : [globalStyles.content, { fontWeight: '700' }]
         ]}>{title}</Text>
       </View>
-    </TouchableOpacity>
   )
 }
 
