@@ -10,7 +10,7 @@ export default function RecordingScreen({ navigation }) {
       <View style={[{ paddingTop: 50, paddingBottom: 40, paddingHorizontal: 30, flex: 1, flexDirection: 'column' }]}>
         <View style={[{ flex: 1 }]}>
           <Text style={[globalStyles.sectionTitle]}>Practice</Text>
-          <Text style={[globalStyles.content, {marginTop: 15}]}>Center your torso in the sign box and press RECORD when you're ready to sign.</Text>
+          <Text style={[globalStyles.content, { marginTop: 15 }]}>Center your torso in the sign box and press RECORD when you're ready to sign.</Text>
         </View>
         <Button
           onPress={() => {

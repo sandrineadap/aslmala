@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet } from 'react-native'
 import Colors from './Color';
 
 const globalStyles = StyleSheet.create({
@@ -21,7 +21,7 @@ const globalStyles = StyleSheet.create({
         // justifyContent: 'center',
         textAlign: 'left',
         color: Colors.TEXT_SECONDARY,
-        fontSize: 14,
+        fontSize: 16,
         lineHeight: 20
         //paddingHorizontal: 30,
 

@@ -22,7 +22,7 @@ export default function SplashScreen({ navigation }) {
             <View style={[styles.card, {
               flex: 4, flexDirection: 'column'
             }]}>
-              <View style={[{ flex: 2, flexDirection: 'row'}]}>
+              <View style={[{ flex: 2, flexDirection: 'row' }]}>
                 <Text style={[globalStyles.sectionTitle,
                 {
                   flex: 1,
@@ -31,18 +31,25 @@ export default function SplashScreen({ navigation }) {
                   textAlign: 'center',
                 }]}> Sign&#x2022;a&#x2022;mander</Text>
               </View>
-              <Text style={[globalStyles.subTitle, {paddingBottom: 20}]}>ASL PRACTICE</Text>
-              <Text style={[globalStyles.content, {
+              <Text style={[globalStyles.subTitle, { paddingBottom: 20 }]}>ASL PRACTICE</Text>
+              <View style={{
                 flex: 2,
-                textAlign: 'center',
-                alignSelf: 'flex-end',
-                paddingHorizontal: 30,
-                // backgroundColor: 'orange'
-              }]}>
-                Can Mandy recognize your signs?
-                Practice ASL by signing in front of the camera,
-                and Mandy will give you instant feedback on how you did!
-              </Text>
+                flexDirection: 'row',
+                // backgroundColor: 'gainsboro'
+              }}>
+                <Text style={[globalStyles.content, {
+                  flex: 1,
+                  textAlign: 'center',
+                  alignSelf: 'center',
+                  paddingHorizontal: 30,
+                  paddingBottom: 30
+                  // backgroundColor: 'orange'
+                }]}>
+                  Can Mandy recognize your signs?
+                  Practice ASL by signing in front of the camera,
+                  and Mandy will give you instant feedback on how you did!
+                </Text>
+              </View>
               {/* <View style={styles.overlay}> */}
               <Image
                 style={styles.mandy}

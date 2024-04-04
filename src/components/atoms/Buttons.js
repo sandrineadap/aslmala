@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Pressable, Animated } from "react-native";
 import Colors from '../../../utilities/Color';
 
-export const Button = ({ title, onPress, disabled, style }) => {
+const Button = ({ title, onPress, disabled, style }) => {
     const animated = new Animated.Value(1);
     const fadeIn = () => {
         Animated.timing(animated, {
@@ -35,7 +35,7 @@ export const Button = ({ title, onPress, disabled, style }) => {
         </Pressable>
     );
 };
-export const ButtonSecondary = ({ title, onPress, disabled, style }) => {
+const ButtonSecondary = ({ title, onPress, disabled, style }) => {
     const animated = new Animated.Value(1);
     const fadeIn = () => {
         Animated.timing(animated, {
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     },
 });
 
-// export {
-//     Button, 
-//     ButtonSecondary
-// };
+export {
+    Button, 
+    ButtonSecondary
+};
