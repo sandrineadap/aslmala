@@ -5,7 +5,7 @@ const Colors =
     TEXT_SECONDARY: '#62749D',
     BORDER: '#D0D6E3',
     BACKGROUND: '#F6F5F5',
-    SELECTED_BG_BLUE: '#63B4FF', //20% opacity
+    SELECTED_BG_BLUE: '#63B4FF33', //20% opacity
     SELECTED_BLUE: '#4894FE',
     PRIMARY_BUTTON: '#1FB9FC',
     PRIMARY_BUTTON_PRESSED: '#1f99fc',

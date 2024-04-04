@@ -19,10 +19,12 @@ const globalStyles = StyleSheet.create({
     },
     content: {
         // justifyContent: 'center',
-        textAlign: 'center',
+        textAlign: 'left',
         color: Colors.TEXT_SECONDARY,
-        paddingHorizontal: 30,
         fontSize: 14,
+        lineHeight: 20
+        //paddingHorizontal: 30,
+
     },
 })
 
