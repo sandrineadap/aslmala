@@ -5,7 +5,10 @@ import Button from '../components/atoms/Button';
 export default function RecordingScreen() {
   return (
     <SafeAreaView style={styles.container}>
+      <View style={[{ paddingVertical: 80, paddingHorizontal: 20, flex: 1, flexDirection: 'column'}]}>
         <Text style={[globalStyles.sectionTitle, { flex: 1 }]}>Practice</Text>
+      </View>
+        
     </SafeAreaView>
   );
 }
