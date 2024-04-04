@@ -52,37 +52,37 @@ export default function RecordingScreen() {
 							selected={selectedRadio==1}
 						/>
 					</TouchableOpacity> */}
-					<RadioListItem 
-						liTitle='word'
-						liSelected={false}
-					/>
-					{/* {
+					{
 						predictions.map((item, index) =>
-							<TouchableOpacity key={index} onPress={() => setSelectedRadio(0)}>
-								<RadioButton
-									title={item.gloss}
-									selected={selectedRadio == item.id}
+							<TouchableOpacity key={index} onPress={() => setSelectedRadio(item.id)} >
+								<RadioListItem
+									liTitle={item.gloss}
+									liSelected={selectedRadio == item.id}
 								/>
 							</TouchableOpacity>)
-					} */}
+					}
 				</View>
 				<View style={{ flex: 3, flexDirection: 'row' }}>
 					<View style={{ flex: 1, alignSelf: 'flex-end' }}>
 						<Button
-							onPress={() => {
-								console.log("NEXT button pressed.");
-								Alert.alert('Oops!', 'Please select a word first, or press \n\"I meant another word\"', [
-									{
-										text: 'OK',
-										onPress: () => console.log('OK Pressed'),
-										style: 'cancel'
-									},
-								]);
-							}}
-							disabled={true}
+							disabled={selectedRadio == -1}
 							title="NEXT"
 							style={styles.customButton}
 							textStyle={styles.custombuttonText}
+							onPress={() => {
+								if (selectedRadio == -1) {
+									console.log("Disabled button pressed.");
+									Alert.alert('Oops!', 'Please select a word first, or press \n\"I meant another word\"', [
+										{
+											text: 'OK',
+											onPress: () => console.log('OK Pressed'),
+											style: 'cancel'
+										},
+									]);
+								} else {
+									console.log("NEXT button pressed.");
+								}
+							}}
 						/>
 						<ButtonSecondary
 							onPress={() => {

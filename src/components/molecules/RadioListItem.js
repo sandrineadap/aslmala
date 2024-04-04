@@ -10,9 +10,9 @@ const RadioListItem = ({ liTitle, liSelected }) => {
       <RadioButton
         title={liTitle}
         selected={liSelected}
-        style={{flex: 1}}
+        // style={{flex: 1}}
       />
-      <View style={styles.line}/>
+      {/* <View style={styles.line}/> */}
     </View>
   )
 }
@@ -21,15 +21,17 @@ const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'column',
     alignItems: 'left',
-    paddingVertical: 14
+    paddingVertical: 20,
+    borderBottomColor: '#888888',
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   line: {
     flex: 1,
-    borderBottomColor: '#E8E8E8',
-    marginVertical: 16,
+    borderColor: '#C8C8C8',
+    marginTop: 16,
     borderWidth: StyleSheet.hairlineWidth,
     // borderWidth: 3,
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
     alignSelf:'stretch'
   }
 });

@@ -14,7 +14,7 @@ const RadioButton = ({ title, selected }) => {
         </View>
         <Text style={[
           selected ? [[globalStyles.content, { color: Colors.PRIMARY_BUTTON, fontWeight: '700' }]]
-            : [globalStyles.content, { fontWeight: '700' }]
+            : [globalStyles.content]
         ]}>{title}</Text>
       </View>
   )
