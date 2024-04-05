@@ -17,7 +17,9 @@ export default function Hooray({ route, navigation }) {
         resizeMode="cover"
         style={[styles.image, { width: '100%', height: "100%" }]}
       >
-        <SafeAreaView style={[styles.container]}>
+        <View style={{ flex: 1 }} />
+
+        <View style={[styles.container, {flex: 10}]}>
           <View style={[{
             // paddingTop: 50,
             flexDirection: 'column',
@@ -43,11 +45,11 @@ export default function Hooray({ route, navigation }) {
               }}>
                 <Text style={[globalStyles.sectionTitle]}>Hooray!</Text>
                 <Text style={[globalStyles.content, { marginTop: 15 }]}>
-                  Mandy recognized that you signed the word: 
+                  Mandy recognized that you signed the word:
                   <Text style={[globalStyles.content, { fontWeight: '800' }]}> {predictions[wordId].gloss}</Text>
                   !
                 </Text>
-                
+
 
                 {/* view for scrolling list of predictions */}
                 <View style={{ flex: 8 }}>
@@ -84,7 +86,7 @@ export default function Hooray({ route, navigation }) {
               </View>
             </ImageBackground>
           </View>
-        </SafeAreaView>
+        </View>
       </ImageBackground>
     </View>
   );
