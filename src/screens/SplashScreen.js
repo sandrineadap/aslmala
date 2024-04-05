@@ -12,11 +12,13 @@ export default function SplashScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.backgroundContainer}>
-        <ImageBackground source={require('./../../assets/splash_screen_bgx2.png')} resizeMode="cover" style={[styles.image, { width: '100%', height: "100%" }]}>
-          {/* <Image source={require('./assets/icon.png')} resizeMode="contain" style={[styles.image, {width: '50%', height: "50%"}]} /> */}
+        <ImageBackground 
+          source={require('./../../assets/splash_screen_bgx2.png')} 
+          resizeMode="cover" 
+          style={[styles.image, { width: '100%', height: "100%" }]}
+          >
           <View style={{/* flex: 2 */ flex: 1 }} />
 
-          {/* Welcome to Sign-a-mander*/}
           <View style={{ flex: 4 }}>
             <View style={{ flex: 1 }} />
             <View style={[styles.card, {

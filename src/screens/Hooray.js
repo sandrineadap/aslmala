@@ -12,13 +12,16 @@ export default function Hooray({ route, navigation }) {
 
   return (
     <View style={styles.backgroundContainer}>
+      {/** swirly blue background */}
       <ImageBackground
         source={require('./../../assets/splash_screen_bgx2.png')}
         resizeMode="cover"
         style={[styles.image, { width: '100%', height: "100%" }]}
       >
+        {/** whitespace */}
         <View style={{ flex: 1 }} />
 
+        {/** bottom content part */}
         <View style={[styles.container, {flex: 10}]}>
           <View style={[{
             // paddingTop: 50,
@@ -33,8 +36,10 @@ export default function Hooray({ route, navigation }) {
               resizeMode='cover'
               style={[styles.image, { width: '100%', height: "100%" }]}
             >
+              {/** whitespace */}
               <View style={{/* flex: 2 */ flex: 1 }} />
 
+              {/** content */}
               <View style={{
                 // paddingTop: 50, 
                 paddingBottom: 40,
@@ -51,9 +56,8 @@ export default function Hooray({ route, navigation }) {
                 </Text>
 
 
-                {/* view for scrolling list of predictions */}
+                {/* where the comparison vids will go */}
                 <View style={{ flex: 8 }}>
-
                 </View>
 
                 {/* view for buttons*/}
