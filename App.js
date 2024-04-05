@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './src/screens/SplashScreen';
 import RecordingScreen from './src/screens/RecordingScreen';
 import WordSelection from './src/screens/WordSelection';
+import Hooray from './src/screens/Hooray'
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const App = () => {
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Record" component={RecordingScreen} /> 
         <Stack.Screen name="WordSelect" component={WordSelection} />
+        <Stack.Screen name="Hooray" component={Hooray} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,69 +1,51 @@
 import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, Alert } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, Alert, ScrollView } from 'react-native';
 import globalStyles from '../../utilities/globalStyles';
 import { Button, ButtonSecondary } from '../components/atoms/Buttons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RadioButton } from '../components/atoms/RadioButton';
 import { RadioListItem } from '../components/molecules/RadioListItem';
+import { preds } from '../data/prediction_list';
 
-export default function RecordingScreen() {
-	const [selectedRadio, setSelectedRadio] = useState(-1)
-	const predictions = [
-		{
-			id: 0,
-			gloss: 'my',
-		},
-		{
-			id: 1,
-			gloss: 'your',
-		},
-		{
-			id: 2,
-			gloss: 'sorry',
-		},
-		{
-			id: 3,
-			gloss: 'thank you',
-		},
-		{
-			id: 4,
-			gloss: 'please',
-		},
-	]
+export default function RecordingScreen({ navigation }) {
+	const [selectedRadio, setSelectedRadio] = useState(-1);
+	// const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
+	// const predictions = shuffle(preds);
+	const predictions = preds;
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<View style={[{ paddingTop: 50, paddingBottom: 40, paddingHorizontal: 30, flex: 1, flexDirection: 'column' }]}>
+			<View style={[{
+				paddingTop: 50,
+				paddingBottom: 40,
+				paddingHorizontal: 30,
+				flexDirection: 'column',
+				flex: 1,
+			}]}>
 				<Text style={[globalStyles.sectionTitle]}>Did you say this?</Text>
 				<Text style={[globalStyles.content, { marginTop: 15 }]}>
 					This is what Mandy thought you might have said. Select the word you meant to sign and tap NEXT!
 				</Text>
-				<View style={styles.words}>
-					{/* Where the list of predictions will go. */}
-					{/* <TouchableOpacity onPress={()=>setSelectedRadio(0)}>
-						<RadioButton
-							title="word"
-							selected={selectedRadio==0}
-						/>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={()=>setSelectedRadio(1)}>
-						<RadioButton
-							title="word 2"
-							selected={selectedRadio==1}
-						/>
-					</TouchableOpacity> */}
-					{
-						predictions.map((item, index) =>
-							<TouchableOpacity key={index} onPress={() => setSelectedRadio(item.id)} >
-								<RadioListItem
-									liTitle={item.gloss}
-									liSelected={selectedRadio == item.id}
-								/>
-							</TouchableOpacity>)
-					}
+
+				{/* view for scrolling list of predictions */}
+				<View style={{flex: 8}}>
+					<ScrollView style={styles.predList}>
+						{/* List of predictions */}
+						{
+							predictions.map((item, index) =>
+								<TouchableOpacity key={index} onPress={() => setSelectedRadio(item.id)} >
+									<RadioListItem
+										liTitle={item.gloss}
+										liSelected={selectedRadio == item.id}
+									/>
+								</TouchableOpacity>)
+						}
+					</ScrollView>
 				</View>
+
 				<View style={{ flex: 3, flexDirection: 'row' }}>
 					<View style={{ flex: 1, alignSelf: 'flex-end' }}>
+
+						{/* blue NEXT button */}
 						<Button
 							disabled={selectedRadio == -1}
 							title="NEXT"
@@ -80,10 +62,13 @@ export default function RecordingScreen() {
 										},
 									]);
 								} else {
-									console.log("NEXT button pressed.");
+									console.log("NEXT button pressed. WordId is " + selectedRadio);
+									navigation.navigate("Hooray", selectedRadio);
 								}
 							}}
 						/>
+
+						{/* light blue I MEANT ANOTHER WORD BUTTON */}
 						<ButtonSecondary
 							onPress={() => {
 								console.log("I MEANT ANOTHER WORD button pressed. Show keyboard for new word.");
@@ -105,7 +90,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		//alignItems: 'center',
 	},
-	words: {
-
+	predList: {
+		paddingVertical: 10,
 	}
 });

@@ -22,7 +22,7 @@ const globalStyles = StyleSheet.create({
         textAlign: 'left',
         color: Colors.TEXT_SECONDARY,
         fontSize: 16,
-        lineHeight: 20
+        lineHeight: 22
         //paddingHorizontal: 30,
 
     },
