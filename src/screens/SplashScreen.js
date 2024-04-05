@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigation } from '@react-navigation/native-stack'
-import { StyleSheet, ImageBackground, Image, Text, View, Alert, Dimensions } from 'react-native';
+import { StyleSheet, ImageBackground, Image, Text, View, Alert, Dimensions, TouchableOpacity } from 'react-native';
 import globalStyles from '../../utilities/globalStyles';
 import Colors from '../../utilities/Color';
 import { Button } from '../components/atoms/Buttons';
@@ -12,81 +12,123 @@ export default function SplashScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.backgroundContainer}>
-        <ImageBackground 
-          source={require('./../../assets/splash_screen_bgx2.png')} 
-          resizeMode="cover" 
+        {/** swirly blue background */}
+        <ImageBackground
+          source={require('./../../assets/splash_screen_bgx2.png')}
+          resizeMode="cover"
           style={[styles.image, { width: '100%', height: "100%" }]}
-          >
+        >
+          {/** white space */}
           <View style={{/* flex: 2 */ flex: 1 }} />
 
-          <View style={{ flex: 4 }}>
-            <View style={{ flex: 1 }} />
-            <View style={[styles.card, {
-              flex: 4, flexDirection: 'column'
-            }]}>
-              <View style={[{ flex: 2, flexDirection: 'row' }]}>
-                <Text style={[globalStyles.sectionTitle,
-                {
-                  flex: 1,
-                  alignSelf: 'flex-end', // for ios
-                  textAlignVertical: 'bottom', // for android 
-                  textAlign: 'center',
-                }]}> Sign&#x2022;a&#x2022;mander</Text>
-              </View>
-              <Text style={[globalStyles.subTitle, { paddingBottom: 20 }]}>ASL PRACTICE</Text>
-              <View style={{
-                flex: 2,
-                flexDirection: 'row',
-                // backgroundColor: 'gainsboro'
-              }}>
-                <Text style={[globalStyles.content, {
-                  flex: 1,
-                  textAlign: 'center',
-                  alignSelf: 'center',
-                  paddingHorizontal: 30,
-                  paddingBottom: 30
-                  // backgroundColor: 'orange'
-                }]}>
-                  Can Mandy recognize your signs?
-                  Practice ASL by signing in front of the camera,
-                  and Mandy will give you instant feedback on how you did!
-                </Text>
-              </View>
-              {/* <View style={styles.overlay}> */}
-              <Image
-                style={styles.mandy}
-                resizeMode='contain'
-                source={require('./../../assets/mandy.png')}
-              />
-              {/* </View> */}
-              <View style={{ flex: 3, flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'flex-end', paddingBottom: 40 }}>
-                  {/* This is where the buttons will go */}
-                  <Button
-                    onPress={() => navigation.navigate("Record")}
-                    title="PRACTICE"
-                    style={[styles.customButton]}
-                    textStyle={styles.customButtonText}
-                  />
-                  <Button
-                    onPress={() => {
-                      Alert.alert('Coming Soon!', 'Stay tuned for Learn mode!', [
-                        {
-                          text: 'OK',
-                          onPress: () => console.log('OK Pressed'),
-                          style: 'cancel'
-                        },
-                      ]);
-                    }}
-                    disabled={true}
-                    title="LEARN"
-                    style={styles.customButton}
-                    textStyle={styles.custombuttonText}
-                  />
-                </View>
+          {/** bottom content part */}
+          <View style={{
+            flex: 4,
+            flexDirection: 'column',
+          }}>
 
+            {/** Mandy Card */}
+            <ImageBackground
+              source={require('./../../assets/mandy_card_splash.png')}
+              resizeMode='cover'
+              style={[styles.image, { width: '100%', height: "100%" }]}
+            >
+              {/** whitespace */}
+              <View style={{/* flex: 2 */ flex: 1 }} />
+              
+              {/** content */}
+              <View style={{
+                flex: 5, 
+                flexDirection: 'column', 
+                paddingBottom: 40,
+                paddingHorizontal: 30,
+              }}>
+
+                {/** text */}
+
+                {/** title */}
+                <View style={[{ flex: 2, flexDirection: 'row' }]}>
+                  <Text style={[globalStyles.sectionTitle,
+                  {
+                    flex: 1,
+                    alignSelf: 'flex-end', // for ios
+                    textAlignVertical: 'bottom', // for android 
+                    textAlign: 'center',
+                  }]}> Sign&#x2022;a&#x2022;mander</Text>
+                </View>
+                {/** subtitle */}
+                <Text style={[globalStyles.subTitle, { paddingBottom: 20 }]}>ASL PRACTICE</Text>
+                
+                {/** content text */}
+                <View style={{
+                  flex: 2,
+                  flexDirection: 'row',
+                  // backgroundColor: 'gainsboro'
+                }}>
+                  <Text style={[globalStyles.content, {
+                    flex: 1,
+                    textAlign: 'center',
+                    alignSelf: 'center',
+                    paddingHorizontal: 30,
+                    paddingBottom: 30,
+                    // backgroundColor: 'orange'
+                  }]}>
+                    Can Mandy recognize your signs?
+                    Practice ASL by signing in front of the camera,
+                    and Mandy will give you instant feedback on how you did!
+                  </Text>
+                </View>
+                
+                {/* <Image
+                  style={styles.mandy}
+                  resizeMode='contain'
+                  source={require('./../../assets/mandy.png')}
+                /> */}
+
+                {/** Buttons */}
+                <View style={{ flex: 3, flexDirection: 'row' }}>
+                  <View style={{ flex: 1, alignSelf: 'flex-end', paddingBottom: 40 }}>
+                    {/* This is where the buttons will go */}
+                    <Button
+                      onPress={() => navigation.navigate("Record")}
+                      title="PRACTICE"
+                      style={[styles.customButton]}
+                      textStyle={styles.customButtonText}
+                    />
+                    <Button
+                      onPress={() => {
+                        Alert.alert('Coming Soon!', 'Stay tuned for Learn mode!', [
+                          {
+                            text: 'OK',
+                            onPress: () => console.log('OK Pressed'),
+                            style: 'cancel'
+                          },
+                        ]);
+                      }}
+                      disabled={true}
+                      title="LEARN"
+                      style={styles.customButton}
+                      textStyle={styles.custombuttonText}
+                    />
+                    <TouchableOpacity
+                      onPress={() => {
+                        console.log("References pressed. TODO: Add references.")
+                      }}
+                    >
+                    <Text 
+                      style={[globalStyles.content, { 
+                        color: Colors.DISABLED_BUTTON_TEXT,
+                        fontWeight: '600',
+                        fontSize: 14,
+                        textAlign: 'center',
+                      }]}
+                    >REFERENCES</Text>
+                  </TouchableOpacity>
+                  </View>
+                </View>
               </View>
-            </View>
+            </ImageBackground>
+            <View style={{ flex: 1 }} />
           </View>
         </ImageBackground>
       </View>
@@ -131,11 +173,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end', // for ios
   },
   card: {
-    flex: 3,
+    // flex: 3,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    backgroundColor: Colors.BACKGROUND,
-    alignItems: 'stretch',
+    // backgroundColor: Colors.BACKGROUND,
+    // alignItems: 'stretch',
     paddingHorizontal: 20,
     // marginTop: 300,
     // alignItems: 'center',

@@ -21,7 +21,7 @@ const globalStyles = StyleSheet.create({
         // justifyContent: 'center',
         textAlign: 'left',
         color: Colors.TEXT_SECONDARY,
-        fontSize: 16,
+        fontSize: 15,
         lineHeight: 22
         //paddingHorizontal: 30,
 

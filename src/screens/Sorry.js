@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { preds } from '../data/prediction_list';
 
 
-export default function Hooray({ route, navigation }) {
+export default function Sorry({ route, navigation }) {
   const wordId = route.params;
   const predictions = preds;
 
@@ -14,7 +14,7 @@ export default function Hooray({ route, navigation }) {
     <View style={styles.backgroundContainer}>
       {/** swirly blue background */}
       <ImageBackground
-        source={require('./../../assets/dark_blue_bg.png')}
+        source={require('./../../assets/orange_bg.png')}
         resizeMode="cover"
         style={[styles.image, { width: '100%', height: "100%" }]}
       >
@@ -32,7 +32,7 @@ export default function Hooray({ route, navigation }) {
 
             {/* Mandy Card */}
             <ImageBackground
-              source={require('./../../assets/mandy_card.png')}
+              source={require('./../../assets/card.png')}
               resizeMode='cover'
               style={[styles.image, { width: '100%', height: "100%" }]}
             >
@@ -41,19 +41,16 @@ export default function Hooray({ route, navigation }) {
 
               {/** content */}
               <View style={{
-                // paddingTop: 50, 
+                paddingTop: 50, 
                 paddingBottom: 40,
                 paddingHorizontal: 40,
                 flex: 3,
                 flexDirection: 'column',
-                textAlign: 'center'
                 // backgroundColor: 'gray'
               }}>
-                <Text style={[globalStyles.sectionTitle]}>Hooray!</Text>
-                <Text style={[globalStyles.content, { marginTop: 15 }]}>
-                  Mandy recognized that you signed the word:
-                  <Text style={[globalStyles.content, { fontWeight: '800' }]}> {predictions[wordId].gloss}</Text>
-                  !
+                <Text style={[globalStyles.sectionTitle]}>Sorry :&#40;</Text>
+                <Text style={[globalStyles.content, { marginTop: 15, }]}>
+                  Mandy couldn't recognize your sign, but Mandy is still learning! Maybe try another word?
                 </Text>
 
 

@@ -72,7 +72,7 @@ export default function RecordingScreen({ navigation }) {
 						<ButtonSecondary
 							onPress={() => {
 								console.log("I MEANT ANOTHER WORD button pressed. Show keyboard for new word.");
-								// navigation.navigate("WordSelect");
+								navigation.navigate("Sorry", selectedRadio)
 							}}
 							title="I MEANT ANOTHER WORD"
 							style={[styles.customButton]}

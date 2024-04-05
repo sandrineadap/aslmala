@@ -6,6 +6,7 @@ import SplashScreen from './src/screens/SplashScreen';
 import RecordingScreen from './src/screens/RecordingScreen';
 import WordSelection from './src/screens/WordSelection';
 import Hooray from './src/screens/Hooray'
+import Sorry from './src/screens/Sorry'
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ const App = () => {
         <Stack.Screen name="Record" component={RecordingScreen} /> 
         <Stack.Screen name="WordSelect" component={WordSelection} />
         <Stack.Screen name="Hooray" component={Hooray} />
+        <Stack.Screen name="Sorry" component={Sorry} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.PRIMARY_BUTTON,
     height: 14,
     width: 14,
-    margin: 1.3,
+    margin: 1.4,
     borderRadius: 10
   },
 });
