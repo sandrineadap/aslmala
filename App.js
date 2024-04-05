@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './src/screens/SplashScreen';
 import RecordingScreen from './src/screens/RecordingScreen';
+import WordSelection from './src/screens/WordSelection';
+import Hooray from './src/screens/Hooray'
 
 const Stack = createNativeStackNavigator();
 
@@ -12,10 +14,15 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash" screenOptions={{
-        headerShown: false
+        headerShown: true,
+        headerBackVisible: true,
+        headerTitle: "",
+        headerTransparent: true,
       }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Record" component={RecordingScreen} /> 
+        <Stack.Screen name="WordSelect" component={WordSelection} />
+        <Stack.Screen name="Hooray" component={Hooray} />
       </Stack.Navigator>
     </NavigationContainer>
   );
